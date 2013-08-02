@@ -19,7 +19,7 @@ header.init = ->
 
 			raw multibox.modeSelect 'cmdMode',  "images/Command_Prompt.png",   			  30, 21, 16
 			raw multibox.modeSelect 'dirMode',  "images/1374408373_active_directory.png", 10, 19, 16
-			raw multibox.modeSelect 'srchMode', "images/magnifying_glass.png", 			  10, 17, 16
+			raw multibox.modeSelect 'srchMode', "images/mag_glass.png", 			  10, 17, 16
 
 			input id:'multiBox', value: 'header'
 
