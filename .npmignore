@@ -8,4 +8,5 @@ data/
 node_modules/
 src/
 lib/*.map
+pub.sh
 notes

@@ -1,7 +1,7 @@
 module.exports =
 
 	admin:
-		password:		"baceRocks"
+		password:		"bacerocks"
 		timeoutMins:	"30"
 
 		theme: 			'dawn'

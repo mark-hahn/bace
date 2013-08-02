@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-console.log(55);
-
-c = require('bace');
-console.log(c);
+var bacePath =  __dirname.split('/').slice(0,-1).join('/');
+process.chdir(bacePath);
+console.log('>>> starting bace', process.cwd());
+require('bace');
