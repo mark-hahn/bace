@@ -1,0 +1,11 @@
+.idea/
+.git/
+.lnk/
+.svn/
+.gitignore
+.npmignore
+data/
+node_modules/
+src/
+lib/*.map
+notes

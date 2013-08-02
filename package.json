@@ -1,0 +1,24 @@
+{
+  "name": "bace",
+  "description": "A web-based ACE editor with a minimal interface to a server",
+  "tags" : ["bace", "ACE", "editor", "shell", "terminal"],
+  "author": "mark@reevuit.com",
+  "main" : "lib/server.js",
+  "version" : "0.0.3",
+  "dependencies": {
+      "socket.io":  		">= 0.9.0",
+	  "underscore": 		">= 1.1.0",
+	  "underscore.string": 	">= 2.3.3",
+	  "teacup":     		">= 0.2.8",
+	  "colors":     		">= 0.6.1",
+	  "source-map-support": ">= 0.2.1",
+	  "pty.js":     		">= 0.2.3",
+	  "commander":     		">= 2.0.0"
+  },
+  "repository" : {
+	"type" : "git",
+	"url" : "http://github.com/mark-hahn/bace.git"
+  },
+  "engine": "node >= 0.8.0",
+  "bin": "./lib/bace.sh"
+}

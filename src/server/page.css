@@ -1,0 +1,164 @@
+/*
+	file: src/server/page.css
+    css for page (entire module)
+
+    copyright mark hahn 2013
+    MIT license
+    https://github.com/mark-hahn/bace/
+
+    #B7CBCB  	blue
+    #C1CBB7		green
+    #C1B7CB		violet
+    #CBB8B8		dusty rose
+*/
+
+body {
+	overflow: hidden;
+	font-family: arial,sans-serif;
+	background-color:#B7CBCB; color: #111;
+}
+
+#page {
+	position:relative;
+	left: -8px; top: -8px;
+	width:100%;
+	overflow:hidden
+}
+
+#pageHdr {
+	position:absolute;
+	width:100%;
+	margin:5px;
+	overflow:hidden;
+	background-color: #B7CBCB;
+	font-size:16px;
+}
+
+#pageMain {
+	position:absolute;
+	width:100%;
+	margin:0;
+}
+
+#editor {
+	margin: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display:none;
+}
+
+input {
+	background-color: #ffe;
+}
+
+button {
+	font-weight: bold; font-size:13px;
+	width:60px; height:30px;
+	border-radius:5px;
+}
+
+#pageHdr #logo {
+	clear:both; float:left;
+	position:relative; top:1px;
+	margin-left:10px;
+	font-weight:bold;
+}
+
+#pageHdr #logoUser {
+	float:left;
+	position:relative; top:2px;
+	font-size:15px; margin-left:5px
+}
+
+.modeIcon {
+	cursor:pointer;
+	position:relative;
+	top: 3px;
+	border-radius: 3px;
+}
+.modeIconNotSel {
+	background-color: #a1b3b3;
+}
+.modeIconSel {
+	background-color: #ebe688;
+}
+
+#pageHdr #multiBox {
+	background-color: #ffc;
+	margin-left: 15px;
+	height: 15px;
+	position:relative;
+	top: 2px;
+	border-radius: 5px;
+	padding:2px;
+}
+
+#pageHdr #tabsDiv {
+	clear:both;
+	float:left;
+	margin: 5px;
+	position:relative;
+	left:-3px;
+	padding:4px;
+	font-size:11px;
+	font-weight: normal;
+}
+
+#pageHdr .tab {
+	margin-left: 5px;
+	margin-bottom: 4px;
+	height: 12px;
+	position:relative;
+	float:left;
+	border-radius: 5px;
+	padding-left:4px; padding-right: 5px;
+	padding-top: 2px; padding-bottom:2px;
+	border:1px solid black;
+	cursor: pointer;
+}
+.tabNotSel {
+	background-color: #cfe5e5;
+}
+.tabSel {
+	background-color: #ebe688;
+}
+.tabClean {
+	text-decoration: none;
+}
+.tabDirty {
+	text-decoration: underline;
+}
+
+.popup {
+	background-color: white; color:#222;
+	border: black 2px solid;
+	position: absolute;
+	z-index: 1000;
+	font-size: 14px;
+}
+
+.popupHdr {
+	height:20px; padding: 5px;
+	font-weight: bold;
+	background-color: #C1B7CB;
+}
+
+.popupBody {
+	background-color: #ffd;
+}
+.popupCloseBtn {
+	position:absolute; top:5px; right:6px;
+	width:18px; height:18px; cursor:pointer;
+}
+
+.settingChoice {
+	height:20px;
+	border-top:1px solid black;
+	padding: 5px;
+	cursor:pointer;
+	text-align: center;
+	font-weight: bold;
+}
