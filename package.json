@@ -20,5 +20,8 @@
 	"url" : "http://github.com/mark-hahn/bace.git"
   },
   "engine": "node >= 0.8.0",
-  "bin": "./lib/bace.sh"
+  "bin": "./scripts/bace.sh",
+  "license" : "MIT",
+  "os" : [ "linux" ],
+  "preferGlobal": true
 }
