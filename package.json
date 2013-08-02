@@ -1,10 +1,10 @@
 {
   "name": "bace",
-  "description": "A web-based ACE editor with a minimal interface to a server",
-  "tags" : ["bace", "ACE", "editor", "shell", "terminal"],
+  "description": "A minimal web-based ACE editor integrated with remote bash",
+  "tags" : ["bace", "ACE", "editor", "shell", "terminal", "bash", "ide", "dev", "development"],
   "author": "mark@reevuit.com",
   "main" : "lib/server.js",
-  "version" : "0.0.3",
+  "version" : "0.0.6",
   "dependencies": {
       "socket.io":  		">= 0.9.0",
 	  "underscore": 		">= 1.1.0",

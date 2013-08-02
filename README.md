@@ -1,4 +1,4 @@
-# bace
+# BACE
 
 A web-based ACE editor and bash with a minimal interface to your server.
 
