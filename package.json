@@ -4,7 +4,7 @@
   "tags" : ["bace", "ACE", "editor", "shell", "terminal", "bash", "ide", "dev", "development"],
   "author": "mark@reevuit.com",
   "main" : "lib/server.js",
-  "version" : "0.0.6",
+  "version" : "0.0.8",
   "dependencies": {
       "socket.io":  		">= 0.9.0",
 	  "underscore": 		">= 1.1.0",
@@ -23,5 +23,6 @@
   "bin": "./scripts/bace.sh",
   "license" : "MIT",
   "os" : [ "linux" ],
-  "preferGlobal": true
+  "preferGlobal": true,
+  "scripts": {"install": "scripts/install.sh"}
 }
