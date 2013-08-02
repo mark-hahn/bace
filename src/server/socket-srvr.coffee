@@ -7,7 +7,7 @@
     https://github.com/mark-hahn/bace/
 ###
 
-fs     = require 'fs'
+fs = require 'fs'
 require 'colors'
 hash = md5: (text) -> require('crypto').createHash('md5').update(text).digest 'hex'
 
@@ -33,7 +33,9 @@ sock.startup = (srvr) ->
 		cmdbox.init   client
 		dirbox.init   client
 
-# for debugging but can be used in production
-fs.watch 'src/server/page.css', -> if client then client.emit 'refresh'
-fs.watch 'src/client',          -> if client then client.emit 'refresh'
+
+if fs.exists 'src'
+	# for debugging but can be used in production
+	fs.watch 'src/server/page.css', -> if client then client.emit 'refresh'
+	fs.watch 'src/client',          -> if client then client.emit 'refresh'
 

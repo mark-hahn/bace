@@ -18,7 +18,7 @@ exports.render = ->
 			head ->
 				meta "http-equiv": "Content-Type", content:"text/html; charset=UTF-8"
 				title "Bace"
-				link href:"/src/server/page.css", rel:"stylesheet", type:"text/css", media:"screen"
+				link href:"/lib/server/page.css", rel:"stylesheet", type:"text/css", media:"screen"
 
 			body ->
 				div id:"logoStart", style:"position:absolute; top:3px; left:10px; font-Size:14px",
