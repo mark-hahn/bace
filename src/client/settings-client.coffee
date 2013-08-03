@@ -11,7 +11,6 @@ bace 	 = (window.bace	?= {})
 settings = (bace.settings	?= {})
 helpers  = (bace.helpers	?= {})
 popup    = (bace.popup	?= {})
-tabs 	 = (bace.tabs		?= {})
 edit     = (bace.edit		?= {})
 
 {render,div,img,label,input,button,text,textarea} = teacup
@@ -95,13 +94,10 @@ settingChoices =
 					{loginData: bace.loginData, values}
 
 	Theme: ->
-		if tabs.tabCount() is 0
-			tabs.addTab null, 'text'
-			edit.insert \
-				'\nThis is a sample document to view while trying out different themes.\n\n' +
-				'A selected word.', 1
-			edit.setSelection 3, 11, 3, 15
-
+		edit.insert \
+			'\nThis is a sample document to view while trying out different themes.\n\n' +
+			'A selected word.', 1
+		edit.setSelection 3, 11, 3, 15
 
 		curTheme = bace.editor.getTheme().split('/')[-1..-1][0]
 		rows = []

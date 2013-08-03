@@ -11,7 +11,6 @@ bace     = (window.bace	?= {})
 cmdbox   = (bace.cmdbox 	?= {})
 edit     = (bace.edit		?= {})
 multibox = (bace.multibox	?= {})
-tabs 	 = (bace.tabs		?= {})
 
 {render,div,img,label,input,button,text,textarea} = teacup
 
@@ -28,7 +27,6 @@ cmdbox.enter = (cmdText) ->
 
 showTermData = (data) ->
 	if haveFirstCmd
-		if tabs.getData('fileType') isnt 'term' then tabs.addTab null, 'term'
 		edit.insert data, 1
 		multibox.setMode 'cmdMode'
 

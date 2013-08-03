@@ -8,10 +8,11 @@
 ###
 
 
-bace 	 = (window.bace	?= {})
+bace 	 = (window.bace		?= {})
 main     = (bace.main		?= {})
+header   = (bace.header		?= {})
 multibox = (bace.multibox	?= {})
-edit     = (bace.edit  	?= {})
+edit     = (bace.edit  		?= {})
 
 {render, div,img,table,tr,td,text} = teacup
 
@@ -26,11 +27,19 @@ main.init = ->
 
 	edit.init $main
 
-main.resize = (w,h) ->
-	hdrHgt = $('#pageHdr').outerHeight()
+bace.barsAtTop = yes
+
+main.resize = (w, h) ->
 	bace.$page.css width: w-1, height: h
+
+	hdrHgt = header.resize w, h
+
 	$main?.css
-		top: hdrHgt
-		width: w
-		height: h - hdrHgt - 4
+		width:  w - 18
+		height: h - hdrHgt
+
+	if bace.barsAtTop then $main?.css bottom: 0
+	else				   $main?.css top:    0
+
+
 

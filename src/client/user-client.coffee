@@ -26,13 +26,15 @@ user.init = (server) ->
 	server.on 'signinSuccess', (userData) ->
 		{userId, name, token} = userData
 
-		helpers.setCookie 'userId',    userId
-		helpers.setCookie 'token', token
+		helpers.clearAllCookies()
+		helpers.setCookie 'userId', userId
+		helpers.setCookie 'token',  token
 
 		bace.userData  = userData
 		bace.userName  = name
 		bace.loginData = {userId, token, name}
 
+		# start everything up
 		header.init()
 		main.init()
 		settings.init()
@@ -40,6 +42,7 @@ user.init = (server) ->
 
 	# login failed - pop up login dialog
 	server.on 'signinFailure', ->
+		helpers.clearAllCookies()
 		fields = [
 			popup.inputHtml 'name', 'Name', bace.userData?.name ? '', 75, 150, 'focus'
 			popup.inputHtml 'password', 'Password', '', 75, 150
@@ -61,7 +64,7 @@ user.init = (server) ->
 
 # clear login credentials and refresh page
 user.signOut = ->
-	helpers.setCookie 'token', ''
+	helpers.clearAllCookies()
 	window.location = '/'
 
 user.logoutBtnPressed = ->

@@ -8,13 +8,12 @@
 ###
 
 bace = (window.bace	?= {})
-user   = (bace.user	?= {})
+user = (bace.user	?= {})
 
 bace.server = server = io.connect '/'
 
 $ ->
 	user.init server
 
-	server.on 'refresh', ->
-		window.location = '/'
+	server.on 'refresh', -> window.location = '/'
 

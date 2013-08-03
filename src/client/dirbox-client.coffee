@@ -11,7 +11,6 @@ bace   = (window.bace	?= {})
 dirbox   = (bace.dirbox 	?= {})
 edit     = (bace.edit		?= {})
 multibox = (bace.multibox	?= {})
-tabs 	 = (bace.tabs		?= {})
 
 {render,div,img,label,input,button,text,textarea} = teacup
 
@@ -23,6 +22,5 @@ dirbox.enter = (text) ->
 
 $ ->
 	bace.server.on 'dirResult', (data) ->
-		if tabs.getData('fileType') isnt 'dir' then tabs.addTab null, 'dir'
 		edit.insert data, 1
 		multibox.setMode 'dirMode'

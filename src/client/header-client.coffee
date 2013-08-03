@@ -3,45 +3,48 @@
 ###
 
 bace 	 = (window.bace	?= {})
-user     = (bace.user  	?= {})
 header   = (bace.header	?= {})
-tabs 	 = (bace.tabs		?= {})
+user     = (bace.user  	?= {})
 multibox = (bace.multibox	?= {})
 settings = (bace.settings	?= {})
 
 {render,div,img,raw,input} = teacup
 
 header.init = ->
+	$('#logoStart').hide()
+
 	bace.$page.append render ->
-		div id:'pageHdr',  ->
+		div id:'statusBar',  ->
 			div id:'logo', 'BACE'
 			div id:"logoUser"
 
-			raw multibox.modeSelect 'cmdMode',  "images/Command_Prompt.png",   			  30, 21, 16
-			raw multibox.modeSelect 'dirMode',  "images/1374408373_active_directory.png", 10, 19, 16
-			raw multibox.modeSelect 'srchMode', "images/mag_glass.png", 			  10, 17, 16
+			img id:'settingsBtn', class:'statusBtn', src:"images/1374024456_settings.png",  \
+				style: "right:40px"
 
-			input id:'multiBox', value: 'header'
+			img id:'logoutBtn', class:'statusBtn', src:"images/logout.png", \
+				style: "right:10px"
 
-			img id:'settingsBtn', src:"images/1374024456_settings.png", \
-				style: "width:20px; height:20px;
-						position:absolute; right:50px; top:3px; cursor:pointer"
+		div id:'boxBar',  ->
+			input id:'multiBox'
 
-			img id:'logoutBtn', src:"images/logout.png", \
-				style: "width:20px; height:20px;
-						position:absolute; right:20px; top:3px; cursor:pointer"
+	$statusBar = $ '#statusBar', bace.$page
+	$boxBar    = $ '#boxBar',    bace.$page
+	$multiBox  = $ '#multiBox',  $boxBar
 
-	$pageHdr = $ '#pageHdr', bace.$page
+	$('#logoUser',  $statusBar).text '(' + bace.userName + ')'
 
-	$('#logoStart', $pageHdr).hide()
-	$('#logoUser',  $pageHdr).text '(' + bace.userName + ')'
-
-	settings.handleBtn $ '#settingsBtn', $pageHdr
-	$('#logoutBtn', $pageHdr).click user.logoutBtnPressed
+	settings.handleBtn $ '#settingsBtn', $statusBar
+	$('#logoutBtn', $statusBar).click user.logoutBtnPressed
 
 	header.resize = (w, h) ->
-		$('#multiBox', $pageHdr).css width: w - 375
-		$('#tabs',     $pageHdr).css width: w - 22
+		statusHgt = $statusBar.outerHeight()
+		boxHgt    = $boxBar.outerHeight()
+		hdrHgt    = statusHgt + boxHgt
 
-	tabs.init 	  $pageHdr
-	multibox.init $pageHdr
+		$statusBar.css top: (if bace.barsAtTop  then         0 else h - statusHgt)
+		$boxBar.css    top: (if bace.barsAtTop  then statusHgt else h -    hdrHgt)
+		$multiBox.css  width: w - 25
+
+		hdrHgt + 12
+
+	multibox.init $boxBar

@@ -38,9 +38,6 @@ edit.setSelection = (startRow, startColumn, endRow, endColumn) ->
 	range = new ace.Range startRow, startColumn, endRow, endColumn
 	editor.getSelection().setSelectionRange range
 
-edit.show = (show = yes) ->
-	helpers.showIf $editor, show
-
 edit.resize = (w,h) ->
 	if (renderer = bace.editor?.renderer)
 		screenSize = [

@@ -7,9 +7,11 @@
     https://github.com/mark-hahn/bace/
 ###
 
-fs = require 'fs'
+fs    = require 'fs'
+_     = require 'underscore'
+_.mixin require('underscore.string').exports()
+
 require 'colors'
-hash = md5: (text) -> require('crypto').createHash('md5').update(text).digest 'hex'
 
 settings = require './settings-srvr'
 user     = require './user-srvr'
@@ -17,25 +19,33 @@ cmdbox   = require './cmdbox-srvr'
 dirbox   = require './dirbox-srvr'
 
 sock = exports
-client = null
+
+clientList = {}
 
 sock.startup = (srvr) ->
 
 	io = require('socket.io').listen srvr, log:no
 #	io.set 'log level', 3
 
-	io.sockets.on 'connection',  (clientIn) ->
-		client = clientIn
+	io.sockets.on 'connection',  (client) ->
 		client.emit 'connected'
+
+		clientList[client.id] = client
 
 		user.init     client
 		settings.init client
 		cmdbox.init   client
 		dirbox.init   client
 
+		client.on 'disconnect', -> delete clientList[client.id]
 
-if fs.exists 'src'
+refreshAllClients = ->
+	console.log 'ss: refreshAllClients', _.size clientList
+	for id, client of clientList
+		client.emit 'refresh'
+
+if fs.existsSync 'src'
 	# for debugging but can be used in production
-	fs.watch 'src/server/page.css', -> if client then client.emit 'refresh'
-	fs.watch 'src/client',          -> if client then client.emit 'refresh'
+	fs.watch 'lib/page.css', refreshAllClients
+	fs.watch 'src/client',   refreshAllClients
 

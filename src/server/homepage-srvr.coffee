@@ -36,7 +36,6 @@ exports.render = ->
 				script src:"/lib/socket-client.js"
 				script src:"/lib/user-client.js"
 				script src:"/lib/helpers-client.js"
-				script src:"/lib/tabs-client.js"
 				script src:"/lib/multibox-client.js"
 				script src:"/lib/header-client.js"
 				script src:"/lib/cmdbox-client.js"

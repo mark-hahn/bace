@@ -4,10 +4,10 @@
 
 bace 	= (window.bace	?= {})
 helpers = (bace.helpers	?= {})
-main    = (bace.main		?= {})
+main    = (bace.main	?= {})
 header  = (bace.header	?= {})
-popup   = (bace.popup		?= {})
-edit     = (bace.edit		?= {})
+popup   = (bace.popup	?= {})
+edit    = (bace.edit	?= {})
 
 helpers.setCookie = (name, value, days = 365) ->
 #	xdbg 'setCookie (name, value, days)', name, value, days
@@ -27,7 +27,11 @@ helpers.getCookie = (name) ->
 				else parts[2]
 	null
 
-helpers.clearCookie = clearCookie = (name) -> setCookie name, "", -1
+helpers.clearCookie = clearCookie = (name) -> helpers.setCookie name, "", -1
+
+helpers.clearAllCookies = ->
+	for cookie in document.cookie.split ";"
+		helpers.clearCookie cookie.split('=')[0]
 
 helpers.getSiblingPos = (oElement) ->
 	$(oElement).parent().children(oElement.nodeName).index(oElement);
