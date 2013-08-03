@@ -17,7 +17,7 @@ users = null
 
 user.chkUsers = ->
 
-	# if no users file then create it with one user admin:baceRocks
+	# if no users file then create it with one user name:"user", pwd:"bacerocks"
 
 	if fs.existsSync 'data/users.json'
 		users = JSON.parse fs.readFileSync 'data/users.json', 'utf8'
@@ -73,7 +73,7 @@ user.init = (client) ->
 
 	client.notSignedIn = (loginData, saveUser = yes) ->
 		if not getUserData loginData.userId, loginData.token, saveUser
-#			console.log 'notSignedIn', new Error().stack, loginData
+			console.log 'notSignedIn', new Error().stack, loginData
 			do -> console.log ('bace: forcing logout for user ' + loginData.name).red
 			lastLoginData = null
 			client.emit 'signedOut'
@@ -100,6 +100,7 @@ user.init = (client) ->
 
 		#if userId/token not ok then check password
 		ok = userData = getUserData userId, token
+
 		if not ok and (userData = users[userId])
 			ok = hash.md5(userData.seed + password) is userData.password
 
@@ -108,7 +109,9 @@ user.init = (client) ->
 			{name} = userData = users[userId]
 			saveUsers userId, {token, name}
 
+			userData.token  = token
 			userData.userId = userId
+			console.log 'us: signinSuccess', userData
 			client.emit 'signinSuccess', userData
 
 			startChkLogin {token, userId, name}, userData

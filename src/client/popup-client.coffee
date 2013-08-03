@@ -54,7 +54,7 @@ popup.show = (opts) ->
 						form action:"javascript:void(0)", ->
 							for field in fields then raw field
 							if onSubmit
-								div style:"position:absolute; right:20px; top:#{height-70}px", ->
+								div style:"position:absolute; right:20px; bottom:13px", ->
 									if showCancel
 										button id:'cancelBtn', type:'button', \
 											   style: "clear:both; float:left", 'Cancel'

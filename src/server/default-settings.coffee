@@ -1,6 +1,6 @@
 module.exports =
 
-	admin:
+	user:
 		password:		"bacerocks"
 		timeoutMins:	"30"
 

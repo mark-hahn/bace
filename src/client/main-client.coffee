@@ -32,14 +32,13 @@ bace.barsAtTop = yes
 main.resize = (w, h) ->
 	bace.$page.css width: w-1, height: h
 
-	hdrHgt = header.resize w, h
+	if (hdrHgt = header.resize? w, h)
+		$main?.css
+			width:  w - 18
+			height: h - hdrHgt
 
-	$main?.css
-		width:  w - 18
-		height: h - hdrHgt
-
-	if bace.barsAtTop then $main?.css bottom: 0
-	else				   $main?.css top:    0
+		if bace.barsAtTop then $main?.css bottom: 0			\
+		else				   $main?.css top:    0
 
 
 

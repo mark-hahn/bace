@@ -4,7 +4,7 @@
   "tags" : ["bace", "ACE", "editor", "shell", "terminal", "bash", "ide", "dev", "development"],
   "author": "mark@reevuit.com",
   "main" : "lib/server.js",
-  "version" : "0.0.14",
+  "version" : "0.0.15",
   "dependencies": {
       "socket.io":  		">= 0.9.0",
 	  "underscore": 		">= 1.1.0",
@@ -13,7 +13,9 @@
 	  "colors":     		">= 0.6.1",
 	  "source-map-support": ">= 0.2.1",
 	  "pty.js":     		">= 0.2.3",
-	  "commander":     		">= 2.0.0"
+	  "commander":     		">= 2.0.0",
+	  "redis":			    ">= 0.8.4",
+	  "hiredis":			">= 0.1.15"
   },
   "repository" : {
 	"type" : "git",
