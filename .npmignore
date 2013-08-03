@@ -3,6 +3,7 @@
 .lnk/
 .svn/
 .gitignore
+.gitattributes
 .npmignore
 data/
 node_modules/

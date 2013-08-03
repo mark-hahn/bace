@@ -1,6 +1,6 @@
 {
   "name": "bace",
-  "description": "A minimal web-based ACE editor integrated with remote bash",
+  "description": "A web-based ACE editor controlled by server-side scripts.",
   "tags" : ["bace", "ACE", "editor", "shell", "terminal", "bash", "ide", "dev", "development"],
   "author": "mark@reevuit.com",
   "main" : "lib/server.js",

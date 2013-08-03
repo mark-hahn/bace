@@ -1,6 +1,6 @@
 # BACE
 
-A web-based ACE editor and bash with a minimal interface to your server.
+A web-based ACE editor controlled by server-side scripts.
 
 The bace github project can be found [here](https://github.com/mark-hahn/bace/).
 
